@@ -57,6 +57,35 @@ library(TeachingDemos)
 # needs to be installed
 # prompts when uninstalled upon first import attempt
 
+# conf range for variance
+sigma.test(birds, conf.level=1-alpha)$conf
 
+# conf range for sd
+sqrt(sigma.test(birds, conf.level=1-alpha)$conf)
 
+# H0 -> sigma = 2e-1
+# H1 -> sigma != 2e-1
+sigma.test(birds, sigma=2e-1)
+# pv > 0.05 => no grounds to reject H0
 
+# experiments that are not included in pdfs
+
+birds = c(5.21,
+          5.15,
+          5.20,
+          5.48,
+          NA,
+          5.25,
+          5.09,
+          5.17,
+          4.94,
+          5.11)
+
+sigma.test(birds, sigma=2e-1)
+t.test(birds, conf.level=1-alpha)
+# t.test ignores NAs by default!
+min(birds)
+max(birds)
+mean(birds)
+mean(birds, na.rm=T)
+birds2 = na.omit(birds)
