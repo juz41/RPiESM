@@ -5,9 +5,9 @@ n = 10
 mi = 5
 sigma = 2
 alpha = 0.05
-v = numeric(N)
 
 # formulae from paper handed out during lectures
+# shall be included in notes
 counter = 0
 for (i in 1:N) {
   x = rnorm(n, mean=mi, sd=sigma)
