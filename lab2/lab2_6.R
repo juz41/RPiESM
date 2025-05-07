@@ -31,4 +31,6 @@ barplot(t)
 
 pie(t)
 
-# paste funcion to concat strings
+# paste function to concat strings
+
+# look for shortcuts in Help
