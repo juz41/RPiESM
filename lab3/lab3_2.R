@@ -41,6 +41,8 @@ sigma.test(goats$WeightInitial, sigmasq=2e1, conf.level=9e-1)
 # we reject H0
 
 # g 
-sigma.test(goats$WeightInitial, sigma=3, alternative = "greater", conf.level=9e-1)
+sigma.test(goats$WeightInitial, sigma=3, alternative = "g", conf.level=9e-1)
 # we reject H0
 # gr is enough (no need to tediously spell greater)
+
+# to check code of function just type its name in cli
