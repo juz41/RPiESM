@@ -9,5 +9,6 @@ alpha = 5e-2
 # H1: p < 0.35
 prop.test(x=128, n=400, p=3.5e-1, alternative="less", conf.level=1-alpha)
 # p-value = 0.114
+# no grounds to reject H0
 
 # b
