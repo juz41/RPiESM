@@ -20,3 +20,4 @@ binom.test(x=3, n=10, p=3.5e-1, alternative="less")
 
 # d
 binom.test(x=3, n=10, conf.level=1-alpha)
+# prop.test warns you here
