@@ -37,8 +37,8 @@ sigma.test(goats$WeightInitial, conf.level=9e-1)$conf
 
 # f
 sigma.test(goats$WeightInitial, sigmasq=2e1, conf.level=9e-1)
-# pv > 0.05 => no grounds to reject H0
-# we do not reject H0
+# pv > 0.1 => no grounds to reject H0
+# we reject H0
 
 # g 
 sigma.test(goats$WeightInitial, sigma=3, alternative = "greater", conf.level=9e-1)
