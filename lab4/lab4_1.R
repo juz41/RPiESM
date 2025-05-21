@@ -11,6 +11,8 @@ prop.test(x=c(40, 31), n=c(233, 220), alternative="gr", conf.level=1-alpha)
 
 # b i
 power.prop.test(n=c(233, 220), p1=1.7e-1, p2=1.4e-1, alternative="o")
-
+# power = 0.2263947, 0.2188411
+# if all samples are of min size, and of max size
+# so we should see the final as something in between
 
 # b ii
