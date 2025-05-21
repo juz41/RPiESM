@@ -16,3 +16,5 @@ power.prop.test(n=c(233, 220), p1=1.7e-1, p2=1.4e-1, alternative="o")
 # so we should see the final as something in between
 
 # b ii
+power.prop.test(p1=1.7e-1, p2=1.4e-1, alternative="o", power=8e-1, sig.level=alpha)
+# ans is 1799
