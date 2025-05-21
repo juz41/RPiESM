@@ -17,5 +17,9 @@ t = t.test(goats$WeightInitial, mu=23, alt="greater")
 # df (degrees of freedom) is number of samples minus one
 
 # c
-power.t.test(n=length(goats$WeightInitial), delta=1, sd=sd(goats$WeightInitial),
+1 - power.t.test(n=length(goats$WeightInitial), delta=1, sd=sd(goats$WeightInitial),
              type="one.sample", alternative="one.sided", sig.level=alpha)$power
+# P(nie odrz. H0 | mu=24) = 1 - P(odrz H0 - mu=24) = 1 - moc
+
+# d
+
