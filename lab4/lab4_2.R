@@ -12,7 +12,9 @@ var.test(a, b)
 
 # see docs for usages
 # we need to check whether variance is the same or not
-# p-value > 5e-2, we cannot reject that variances are the same
+# p-value > 1e-1, we cannot reject that variances are the same
 # so we can use model II
+# in reality we check whether the samples are from the same normal distribution
 
-
+t.test(a, b, alternative="l", paired=FALSE, var.equal=TRUE)
+# var.equal is by default FALSE, we can set because we checked it
