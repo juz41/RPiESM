@@ -14,6 +14,8 @@ interval = t.test(goats$WeightInitial, conf.level=1-alpha)$conf
 # b
 t = t.test(goats$WeightInitial, mu=23, alt="greater")
 # we cannot disregard H0 (mu=23)
-# df is number of samples minus one
+# df (degrees of freedom) is number of samples minus one
 
-
+# c
+power.t.test(n=length(goats$WeightInitial), delta=1, sd=sd(goats$WeightInitial),
+             type="one.sample", alternative="one.sided", sig.level=alpha)$power
