@@ -25,8 +25,19 @@ t = t.test(goats$WeightInitial, mu=23, alt="greater")
 # for example false alarms or something idk sugar measuring in factories
 
 # d
-power.t.test(n=length(goats$WeightInitial), power=8e-1, sd=sd(goats$WeightInitial),
+power.t.test(power=8e-1, sd=sd(goats$WeightInitial), delta=1,
              type="one.sample", alternative="one.sided", sig.level=alpha)
 # mi-delta has to be the average weight so that power will be 0.8
+# 77 is the answer
 
+library(TeachingDemos)
+# e
+# conf range for variance
+sigma.test(goats$WeightInitial, conf.level=9e-1)$conf
 
+# f
+# H0 -> sigma = 2e1
+# H1 -> sigma != 2e1
+sigma.test(goats$WeightInitial, sigma=2e1)
+# pv > 0.05 => no grounds to reject H0
+# we rejest H0

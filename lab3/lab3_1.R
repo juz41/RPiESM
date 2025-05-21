@@ -43,8 +43,6 @@ power.t.test(n=length(birds), delta=5e-2, sd=sd(birds),
 # true difference we want to detect
 # sig.level default is 5e-2
 
-
-
 power.t.test(n=length(birds), power=8e-1, sd=sd(birds),
              type="one.sample", alternative="one.sided", sig.level=alpha)
 # mi-delta has to be the average weight so that power will be 0.8
