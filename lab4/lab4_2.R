@@ -18,3 +18,5 @@ var.test(a, b)
 
 t.test(a, b, alternative="l", paired=FALSE, var.equal=TRUE)
 # var.equal is by default FALSE, we can set because we checked it
+# 0.1511 > alpha, so we have no grounds to reject H0
+
