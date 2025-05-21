@@ -23,9 +23,9 @@ t.test(a, b, alternative="l", paired=FALSE, var.equal=TRUE)
 # b
 # P(we accept H0 | delta=2) <=> P(we accept H0 | mi_b-mi_a=2)
 # 1-P(we reject H0 ...)
-tmp = (var(a)+var(b))/2
+pooled_variance=(var(a)+var(b))/2
 # pooled variance pre calculated
-1-power.t.test(delta=2, type="t", n=5, sd=sqrt(tmp), alt="o")$power
+1-power.t.test(delta=2, type="t", n=5, sd=sqrt(pooled_variance), alt="o")$power
 
 # c
 power.t.test(delta=2, type="t", power=7.5e-1, sd=sqrt(tmp), alt="o")
