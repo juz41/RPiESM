@@ -20,6 +20,13 @@ t = t.test(goats$WeightInitial, mu=23, alt="greater")
 1 - power.t.test(n=length(goats$WeightInitial), delta=1, sd=sd(goats$WeightInitial),
              type="one.sample", alternative="one.sided", sig.level=alpha)$power
 # P(nie odrz. H0 | mu=24) = 1 - P(odrz H0 - mu=24) = 1 - moc
+# we can make power better by enlaring alpha or n
+# it may be the case that the bigger the power the better
+# for example false alarms or something idk sugar measuring in factories
 
 # d
+power.t.test(n=length(goats$WeightInitial), power=8e-1, sd=sd(goats$WeightInitial),
+             type="one.sample", alternative="one.sided", sig.level=alpha)
+# mi-delta has to be the average weight so that power will be 0.8
+
 
