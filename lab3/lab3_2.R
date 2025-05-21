@@ -19,8 +19,8 @@ t = t.test(goats$WeightInitial, mu=23, alt="greater")
 # c
 1 - power.t.test(n=length(goats$WeightInitial), delta=1, sd=sd(goats$WeightInitial),
              type="one.sample", alternative="one.sided", sig.level=alpha)$power
-# P(nie odrz. H0 | mu=24) = 1 - P(odrz H0 - mu=24) = 1 - moc
-# we can make power better by enlaring alpha or n
+# P(not rejecting H0 | mu=24) = 1 - P(reject H0 - mu=24) = 1 - power
+# we can make power better by enlarging alpha or n
 # it may be the case that the bigger the power the better
 # for example false alarms or something idk sugar measuring in factories
 
@@ -32,7 +32,7 @@ power.t.test(power=8e-1, sd=sd(goats$WeightInitial), delta=1,
 
 library(TeachingDemos)
 # e
-# conf range for variance
+# confidence range for variance
 sigma.test(goats$WeightInitial, conf.level=9e-1)$conf
 
 # f
@@ -40,4 +40,4 @@ sigma.test(goats$WeightInitial, conf.level=9e-1)$conf
 # H1 -> sigma != 2e1
 sigma.test(goats$WeightInitial, sigma=2e1)
 # pv > 0.05 => no grounds to reject H0
-# we rejest H0
+# we reject H0
