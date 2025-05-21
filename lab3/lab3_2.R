@@ -43,3 +43,4 @@ sigma.test(goats$WeightInitial, sigmasq=2e1, conf.level=9e-1)
 # g 
 sigma.test(goats$WeightInitial, sigma=3, alternative = "greater", conf.level=9e-1)
 # we reject H0
+# gr is enough (no need to tediously spell greater)
