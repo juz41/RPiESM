@@ -26,3 +26,7 @@ t.test(a, b, alternative="l", paired=FALSE, var.equal=TRUE)
 tmp = (var(a)+var(b))/2
 # pooled variance pre calculated
 1-power.t.test(delta=2, type="t", n=5, sd=sqrt(tmp), alt="o")$power
+
+# c
+power.t.test(delta=2, type="t", power=7.5e-1, sd=sqrt(tmp), alt="o")
+# n=17
