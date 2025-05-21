@@ -10,3 +10,7 @@ alpha = 5e-2
 
 # a
 interval = t.test(goats$WeightInitial, conf.level=1-alpha)$conf
+
+# b
+t = t.test(goats$WeightInitial, mu=23, alt="greater")
+# we cannot disregard H0 (mu=23)
