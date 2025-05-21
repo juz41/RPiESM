@@ -15,3 +15,5 @@ prop.test(x=128, n=400, p=3.5e-1, alternative="less")
 prop.test(x=128, n=400, conf.level=1-alpha)
 
 # c
+# now we have to use binom test
+binom.test()
