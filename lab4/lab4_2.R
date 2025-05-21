@@ -21,3 +21,8 @@ t.test(a, b, alternative="l", paired=FALSE, var.equal=TRUE)
 # 0.1511 > alpha, so we have no grounds to reject H0
 
 # b
+# P(we accept H0 | delta=2) <=> P(we accept H0 | mi_b-mi_a=2)
+# 1-P(we reject H0 ...)
+tmp = (var(a)+var(b))/2
+# pooled variance pre calculated
+1-power.t.test(delta=2, type="t", n=5, sd=sqrt(tmp), alt="o")$power
