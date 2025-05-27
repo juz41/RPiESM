@@ -57,18 +57,24 @@ diff_confidence_interval <- function(function1, function2, generating_data_funct
 
 # diff_confidence_interval(confidence_interval, t.test, rnorm, 100, 0.95)
 
+
 generators <- list(
   Normal = rnorm,
-  Exponential = rexp,
-  Uniform = runif,
-  Gamma = function(n) rgamma(n, shape=2, scale=2),
-  Beta = function(n) rbeta(n, shape1=2, shape2=5),
-  Cauchy = rcauchy
+  Exponential = rexp
+  # Uniform = runif
+  # Gamma = function(n) rgamma(n, shape=2, scale=2)
+  # Beta = function(n) rbeta(n, shape1=2, shape2=5)
+  # Cauchy = rcauchy
+  
+  # be careful when using many, may cause plotting problems on small screens
 )
 
 par(mfrow = c(length(generators), 1))
 sample_sizes = seq(100, 1000, by = 5)
 
+# for each function declared in generators
+#   compares t.test with our function using diff_confidence_interval
+#   for each sample size from sample_sizes and plots the outcome
 for(i in 1:length(generators)){
   results = numeric(length=length(sample_sizes))
   for(j in 1:length(sample_sizes)){
@@ -85,5 +91,3 @@ for(i in 1:length(generators)){
        xlab = "sample Size", ylab = "(sum(abs(interval1-interval2)))",
        main = paste("Data generated using", names(generators)[i]))
 }
-  
-
