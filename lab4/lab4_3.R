@@ -10,4 +10,5 @@ after = hemoglobina$po
 # H0: mi_przed=mi_po
 # H1: mi_przed>mi_po
 t.test(before, after, alt="gr", paired=TRUE)
-# p-value < 0.05 => 
+# p-value < 0.05 => we can reject H0
+
