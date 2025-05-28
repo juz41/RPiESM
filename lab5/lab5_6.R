@@ -26,11 +26,12 @@ boxplot(x2, main="Unif")
 boxplot(x3, main="Exp")
 boxplot(x4, main="Pois")
 
-# c
-hist(x1, main="Norm")
-hist(x2, main="Unif")
-hist(x3, main="Exp")
-hist(x4, main="Pois")
+# c 
+# NO CLUE WHETHER CORRECT
+hist(x1, main="Norm", prop=TRUE)
+hist(x2, main="Unif", prop=TRUE)
+hist(x3, main="Exp", prop=TRUE)
+hist(x4, main="Pois", prop=TRUE)
 
 # d
 alpha = 5e-2
