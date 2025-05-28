@@ -14,5 +14,5 @@ sum(data)*p_data
 
 chisq.test(x=data, p=p_data)
 
-# p-value: 0.08306 < 0.1
+# p-value < alpha : 0.08306 < 0.1
 # we reject H0 (dist is not Poisson)
