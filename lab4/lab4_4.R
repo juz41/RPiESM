@@ -17,4 +17,4 @@ n2 = length(y)
 U = (mean(x)-mean(y))/(sqrt(var(x)/n1+var(y)/n2))
 1 - pnorm(U) # p-value - probability of U > t
 pnorm(U, lower.tail=F)
-# 
+# we reject H0 - richer people have higher IQ
