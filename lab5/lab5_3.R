@@ -6,4 +6,6 @@ data = c(24, 73, 77, 26)
 p_data = dbinom(0:3, size=n, prob=p)
 chisq.test(x=data, p=p_data)
 
-# p-value - we reject H0 and we doubt that he is gonna pass
+# H0 = samples are from distribution binom(3, 1/2)
+# H1 not H0
+# p-value - we cannot reject H0, he shall gonna pass
