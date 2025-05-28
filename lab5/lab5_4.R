@@ -12,7 +12,12 @@ p_data = c(dpois(0:4, lambda=lambda_estimator), ppois(4, lambda_estimator, lower
 sum(data)*p_data
 # we can use chisq.test
 
+# W = [a, +Inf)
+a = qchisq(1-alpha, df=(6-1-1))
 chisq.test(x=data, p=p_data)
+# we cannot use p-value of this, because R does not handle complex H
+1-pchisq(9.7363, 4)
+# 9.73... is output of chisq.test
 
 # p-value < alpha : 0.08306 < 0.1
 # we reject H0 (dist is not Poisson)
