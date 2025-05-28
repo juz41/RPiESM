@@ -8,4 +8,11 @@ x3 = rexp(n=N, 5)
 x4 = rpois(n=N, 3)
 
 # a
-qqnorm(x)
+qqnorm(x1)
+qqline(x1)
+qqnorm(x2)
+qqline(x2)
+qqnorm(x3)
+qqline(x3)
+qqnorm(x4)
+qqline(x4)
