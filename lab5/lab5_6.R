@@ -1,6 +1,6 @@
 rm(list = ls())
 
-par("mfrow"=c(2,2))
+par("mfcol"=c(4,3))
 N = 100
 x1 = rnorm(n=N, 20, 5)
 x2 = runif(n=N, -1, 1)
@@ -25,13 +25,16 @@ boxplot(x1, main="Norm")
 boxplot(x2, main="Unif")
 boxplot(x3, main="Exp")
 boxplot(x4, main="Pois")
-
 # c 
 # NO CLUE WHETHER CORRECT
-hist(x1, main="Norm", prop=TRUE)
-hist(x2, main="Unif", prop=TRUE)
-hist(x3, main="Exp", prop=TRUE)
-hist(x4, main="Pois", prop=TRUE)
+hist(x1, main="Norm", freq=FALSE)
+lines(density(x1))
+hist(x2, main="Unif", freq=FALSE)
+lines(density(x2))
+hist(x3, main="Exp", freq=FALSE)
+lines(density(x3))
+hist(x4, main="Pois", freq=FALSE)
+lines(density(x4))
 
 # d
 alpha = 5e-2
