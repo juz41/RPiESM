@@ -9,8 +9,7 @@ x4 = rpois(n=N, 3)
 x5 = rcauchy(n=N)
 
 # a
-qqnorm(x1, main="Norm")
-qqline(x1)
+qqnorm(x1, main="Norm"); qqline(x1)
 qqnorm(x2, main="Unif")
 qqline(x2)
 qqnorm(x3, main="Exp")
@@ -43,4 +42,4 @@ shapiro.test(x1)
 shapiro.test(x2)
 shapiro.test(x3)
 shapiro.test(x4)
-# for x1 p-value is rather enormous, so we cannot reject H0, in other cases we can
+for x1 p-value is rather enormous, so we cannot reject H0, in other cases we can

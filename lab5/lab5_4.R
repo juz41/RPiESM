@@ -1,5 +1,6 @@
 rm(list = ls())
 
+library(MASS)
 alpha = 1e-1
 data = c(140, 280, 235, 200, 100, 45)
 data2 = rep(0:5, data)
