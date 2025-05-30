@@ -19,5 +19,5 @@ chisq.test(x=data, p=p_data)
 1-pchisq(9.7363, 4)
 # 9.73... is output of chisq.test
 
-# p-value < alpha : 0.08306 < 0.1
+# p-value < alpha : 0.045 < 0.1
 # we reject H0 (dist is not Poisson)
