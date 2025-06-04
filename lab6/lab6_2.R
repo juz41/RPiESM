@@ -17,6 +17,9 @@ library("car")
 leveneTest(count~sprays, center=mean)
 # p-value is very low, we have to dismiss H0 and we lose all hope and go home
 
+par("mfrow"=c(2,3))
+tapply(count, sprays, function(x){qqnorm(x); qqline(x)})
+
 # we shall take a square root of the data
 count = sqrt(count)
 leveneTest(count~sprays, center=mean)
@@ -25,6 +28,9 @@ plot(count ~ sprays)
 
 results = simplify2array(tapply(count, sprays, function(x) shapiro.test(x)[1:2]))
 results
+
+par("mfrow"=c(2,3))
+tapply(count, sprays, function(x){qqnorm(x); qqline(x)})
 
 # H0: mi1=mi2=...mi6
 # H1: !H0
