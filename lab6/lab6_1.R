@@ -34,3 +34,14 @@ bartlett.test(width, species)
 # alpha = 1e-2
 # p-value = 0.3515 -> we have no grounds to dismiss H0, variances are the same
 
+# we shall proceed since all requirements are met
+
+# the factor variable HAS to be factor - the test will not break, just output nonsense
+# class(y), is.factor(y)
+is.factor(species)
+
+model = lm(width ~ species)
+anova(model)
+# outputs analysis of variance table
+
+
