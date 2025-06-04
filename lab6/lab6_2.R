@@ -17,8 +17,6 @@ library("car")
 leveneTest(count~sprays, center=mean)
 # p-value is very low, we have to dismiss H0 and we lose all hope and go home
 
-
-
 # we shall take a square root of the data
 count = sqrt(count)
 leveneTest(count~sprays, center=mean)
@@ -32,3 +30,9 @@ results
 # H1: !H0
 model = lm(count ~ sprays)
 anova(model)
+
+pairwise.t.test(count,sprays,p.adjust.method="bonferroni")
+tukey = TukeyHSD(aov(model),  conf.level=.95)
+tukey
+plot(tukey)
+# if two groups' confidence level is close to 0, then the means are similar
