@@ -43,5 +43,16 @@ is.factor(species)
 model = lm(width ~ species)
 anova(model)
 # outputs analysis of variance table
+# p-value is extremely low -> we dismiss H0 and reason that the means are different
+
+# Response: width
+# Df Sum Sq Mean Sq F value    Pr(>F)    
+# species     2 11.345  5.6725   49.16 < 2.2e-16 ***
+#   Residuals 147 16.962  0.1154      
 
 
+# repeated something
+pairwise.t.test(width,species,p.adjust.method="bonferroni")
+tukey = TukeyHSD(aov(model),  conf.level=.95)
+tukey
+plot(tukey)
