@@ -1,5 +1,7 @@
 library(MASS)
 library(TeachingDemos)
+library(lattice)
+library(car)
 
 can_reject <- function(pvalue, alpha) {
   if(pvalue <= alpha) {
@@ -42,3 +44,91 @@ can_reject(result$p.value, alpha)
 alpha = 0.05
 sigma.test(data, conf.level=1-alpha)
 
+# kol2
+# 1
+set.seed(111)
+lambda = 1/4
+N = 27
+x = rexp(N, lambda)
+fit = fitdistr(x, "exponential")
+fit$estimate
+(pexp(7, fit$estimate, lower.tail = FALSE))
+
+# 2
+# Sprawdzamy, czy możemy skorzystać z prop.test():
+(all(c(97, 250-97) > 5))
+prop.test(97, 250, conf.level=0.99)
+
+# 3
+barley$yield
+barley$site
+alpha = 0.05
+x = barley$yield[barley$site == "Waseca"]
+result = t.test(x, mu=50, conf.level=1-alpha, alternative="less")
+can_reject(result$p.value, alpha)
+# H0 mu=50
+
+# 4
+alpha = 0.05
+x = cats$Bwt
+x1 = x[cats$Sex == "M"]
+x2 = x[cats$Sex == "F"]
+result = var.test(x1, x2, alternative = "two.sided")
+can_reject(result$p.value, alpha)
+# są różne
+
+# 5
+alpha = 0.05
+x = c(-0.89, -0.13, -0.05, 1.18, 0.25)
+result = ks.test(x, "pt", df=30)
+can_reject(result$p.value, alpha)
+
+# 6
+times = c(163, 205, 197, 286, 172,
+           87, 106, 101, 94, 123,
+           82, 153, 87, 103, 96,
+           104, 136, 98, 207, 146)
+types = as.factor(rep(c("A", "B", "C", "D"), rep(5, 4)))
+alpha = 0.05
+
+simplify2array(tapply(
+  times, 
+  types, 
+  function(x) { shapiro.test(x)[1:2] }))
+# są normalne
+
+(test_result <- leveneTest(times, types, center = mean))
+model <- lm(times ~ types)
+summary(model)
+(tukey <- TukeyHSD(aov(model)))
+plot(tukey)
+
+
+
+# kol3
+# 1
+set.seed(123)
+N <- 25
+lambda <- 6
+X <- rexp(N, lambda)
+(fit <- fitdistr(X, "exponential"))
+(qexp(0.9, fit$estimate))
+
+# 2
+x = crabs$CW
+mean(x)
+var(x)
+median(x)
+quantile(x, 0.8)
+
+hist_data <- hist(x, freq = FALSE)
+(test_result <- shapiro.test(X))
+pvalue <- test_result$p.value
+can_reject(pvalue, 0.05)
+sqrt(sigma.test(x, conf.level=0.95)$conf.int)
+
+# 3
+# 4
+# 5
+
+# kol4
