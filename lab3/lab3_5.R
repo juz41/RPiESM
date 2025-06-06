@@ -1,7 +1,7 @@
 rm(list = ls())
 
 # a
-# Compute Confidence Interval for the Mean (n ≥ 100)
+# Compute Confidence Interval for the Mean (n >= 100)
 #
 # This function calculates a confidence interval for the mean of a numeric vector of an arbitrary distribution
 #
