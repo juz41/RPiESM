@@ -128,7 +128,57 @@ can_reject(pvalue, 0.05)
 sqrt(sigma.test(x, conf.level=0.95)$conf.int)
 
 # 3
+(all(c(24, 500-24) > 5))
+result = binom.test(24, 500, 0.04, alt="greater")
+can_reject(result$p.value, 0.05)
+# czyli nie mam podstaw by odrzucic że prawd.  = 0.04
+# błąd na githubie gościa w kodzie?
+result = binom.test(24, 500, conf.level = 0.99)
+result
+
 # 4
+alpha = 0.05
+data = c(22, 30, 22, 16, 10)
+lambda = 2
+p_data = c(dpois(0:3 , lambda = lambda), ppois(3, lambda, lower.tail = FALSE))
+
+sum(data)*p_data
+result = chisq.test(x = data , p = p_data)
+can_reject(result$p.value, alpha)         
+# Nie ma podstaw do odrzucenia H0, ponieważ 0.08864 > 0.01.
+# Zatem badana próba losowa może pochodzić z rozważanego rozkładu.
+
 # 5
+X <- anorexia$Prewt[anorexia$Treat == "CBT"]
+Y <- anorexia$Postwt[anorexia$Treat == "CBT"]
+alpha = 0.05
+result = t.test(X, Y, conf.level = 1-alpha, paired=TRUE, alt="l")
+can_reject(result$p.value, alpha)       
+
+delta <- 3
+(test_result <- power.t.test(n = length(X), 
+                             delta = delta,
+                             sd = sd(Y - X),
+                             sig.level = alpha,
+                             type = "paired",
+                             alternative = "one.sided"))
+power <- test_result$power
+(result <- 1 - power)
+
+# Prawdopodobieństwo to wynosi: 0.3044165
+
 
 # kol4
+# 1
+
+
+# 2
+
+# 3
+
+# 4
+
+# 5
+
+
+
