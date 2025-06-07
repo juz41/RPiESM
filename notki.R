@@ -170,15 +170,80 @@ power <- test_result$power
 
 # kol4
 # 1
+x = c(3.75, 4.52, -3.88, 6.85, 8.15, 6.15)
+alpha = 0.05
+result = shapiro.test(x)
+can_reject(result$p.value, alpha)       
+# Nie ma podstaw do odrzucenia H0, ponieważ 0.1118 > 0.05.
+# Próba może zatem należeć do rozkładu normalnego.
 
+(fit <- fitdistr(x, "normal"))
+sqrt(sigma.test(x, sigma=3.915770, conf.level=0.95)$conf.int)
 
 # 2
+x = faithful$eruptions[faithful$waiting < 70]
+summary(x)
+mean(x)
+sd(x)
+quantile(x, 0.75)
+
+box = boxplot(x)
+box
 
 # 3
+x = Orange$circumference
+alpha = 0.05
+result = t.test(x, mu=100, alt="l", conf.level=1-alpha)
+result
+can_reject(result$p.value, alpha)
+# Nie ma podstaw do odrzucenia H0, ponieważ 0.944 > 0.05.
+# Zatem średnia obwodu pnia może nie być mniejsza niż 100 mm.
+
+power.t.test(n=length(x), sd = sd(x), delta=100-90, alt="o", type="o")
+result = sigma.test(x, sigma=40, alt="t", conf.level=1-alpha)
+can_reject(result$p.value, alpha)
+# Odrzucamy H0, ponieważ 0.0005085 ≤ 0.05.
+# Możemy zatem twierdzić, że odchylenie standardowe obwodu pnia różni się
+# istotnie od 40 mm.
 
 # 4
+x = Pima.te$glu[Pima.te$age > 40]
+y = Pima.te$glu[Pima.te$age <= 40]
+result = t.test(x, y, paired="F", conf.level=1-alpha, alt="g", var.equal=TRUE)
+can_reject(result$p.value, alpha)
+# tak
+
+# b) - TREŚCI TEGO NIE MA NA GITHUBIE
+# Wyznaczamy wartość estymatora odchylenia standardowego X i Y:
+
+nX = length(X)
+nY = length(Y)
+varX = var(X)
+varY = var(Y)
+(sd_XY = sqrt(((nX - 1) * varX + (nY - 1) * varY)/(nX + nY - 2)))
+# Wartość tego estymatora to: 30.14848
+# W celu wyznaczenia prawdopodobieństwa korzystamy z funkcji power.t.test():
+
+(test_result <- power.t.test(power = 0.8,
+                             delta = 3, 
+                             sd = sd_XY,
+                             sig.level = 0.01, 
+                             type="two.sample",
+                             alternative="one.sided"))
+(n <- ceiling(test_result$n))
+
+
+
 
 # 5
-
-
+x = c(234, 290, 76, 73, 69)
+p = c(.3, .4, .1, .1, .1)
+sum(x)*p
+alpha = 5e-2
+# coś tam coś tam możemy
+result = chisq.test(x=x, p=p)
+can_reject(result$p.value, alpha)
+# Nie ma podstaw do odrzucenia H0, ponieważ 0.8835 > 0.05.
+# Możemy zatem twierdzić, że rozkład preferencji klientów może być taki jak
+# w treści zadania.
 
